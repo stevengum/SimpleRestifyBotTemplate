@@ -16,3 +16,5 @@ server.post('/api/messages', connector.listen());
 
 var bot = new builder.UniversalBot(connector);
 
+// Add MemoryBotStorage to bot as the Bot State API is deprecated.
+bot.set('storage', new builder.MemoryBotStorage());
