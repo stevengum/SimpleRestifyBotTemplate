@@ -16,7 +16,7 @@ ___
 
 ## <a id="actual_code"></a>[Actual code](#title):
 
-```
+```js
 var builder = require('botbuilder'); 
 var restify = require('restify');
 require('dotenv').config();
@@ -34,6 +34,9 @@ var connector = new builder.ChatConnector({
 server.post('/api/messages', connector.listen());
 
 var bot = new builder.UniversalBot(connector);
+
+// Add MemoryBotStorage to bot as the Bot State API is deprecated.
+bot.set('storage', new builder.MemoryBotStorage());
 ```
 
 ___
